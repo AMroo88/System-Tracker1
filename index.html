@@ -516,7 +516,7 @@
   <section id="tab-dashboard" hidden>
     <div class="section">
       <h2>Weekly Dashboard</h2>
-      <div class="muted">Shows progress for the current week (Mon → Sun).</div>
+      <div class="muted">Shows progress for the current week (Sun → Sat).</div>
     </div>
 
     <div class="section">
@@ -661,13 +661,14 @@
   const todayISO = () => new Date().toISOString().slice(0,10);
 
   function startOfWeekISO(d = new Date()) {
-    // Monday start
-    const dt = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    const day = dt.getDay(); // 0 Sun..6 Sat
-    const diff = (day === 0 ? -6 : 1 - day);
-    dt.setDate(dt.getDate() + diff);
-    return dt.toISOString().slice(0,10);
-  }
+  // Sunday start (Sun → Sat)
+  const dt = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const day = dt.getDay(); // 0 Sun..6 Sat
+  // If today is Sunday (0), diff = 0; otherwise go back to previous Sunday
+  const diff = -day;
+  dt.setDate(dt.getDate() + diff);
+  return dt.toISOString().slice(0,10);
+}
   function addDaysISO(iso, days) {
     const [y,m,dd] = iso.split('-').map(Number);
     const d = new Date(y, m-1, dd);
@@ -739,9 +740,9 @@
       // { date, optionId, minutes }
     ],
     pomodoro: {
-      workMinutes: 25,
-      shortBreakMinutes: 5,
-      longBreakMinutes: 15,
+      workMinutes: 40,
+      shortBreakMinutes: 10,
+      longBreakMinutes: 20,
       longBreakEvery: 4
     },
     pomodoroStats: {
@@ -1108,7 +1109,7 @@
         </div>
 
         <div>
-          <div class="muted">Mon → Sun</div>
+          <div class="muted">Sun → Sat</div>
           <div class="miniBars" aria-hidden="true">${bars}</div>
         </div>
       `;
