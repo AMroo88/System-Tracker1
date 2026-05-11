@@ -1,0 +1,15 @@
+{
+  "name": "Streaks+ MVP",
+  "short_name": "Streaks+",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAr0lEQVR4nO3YwQ2AMAwF0b/0VQyWzG0gQxqv5hC8o4kQb0p8oSgAAAAAAAAAAAJCq6m8f0y7Wk3nZQ3v9m1oW5oJ9l7y1rQxQ7l2h5Q4gq2mH0d5mN0g7R9Qv1m2c4mP8jWg1cG7zqz2s5b0GmX7w2b9cQAAAAAAAAAAADwK1i0m7V0bGxCqkAAAAASUVORK5CYII=",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
